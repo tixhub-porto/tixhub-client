@@ -1,0 +1,33 @@
+.landingPageSection {
+  background: url("../../../images//landing_background.png") no-repeat center center/cover;
+  width: 100%;
+  height: 100vh;
+}
+.landingPageSection .mainEvents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 50%;
+  justify-content: end;
+  padding: 1rem;
+}
+.landingPageSection .mainEvents span {
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 2rem;
+}
+.landingPageSection .mainEvents .eventTitle {
+  font-family: "Gaegu", "serif";
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0;
+}
+.landingPageSection .mainEvents .ticketButton {
+  background-color: #F8BD00;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+}

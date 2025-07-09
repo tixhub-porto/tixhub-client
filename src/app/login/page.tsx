@@ -1,5 +1,5 @@
-import styles from "../../public_assets/css/login/login.module.css";
-import loketImage from "../../public_assets/images/loket.png";
+import styles from "@css/login/login.module.css";
+import loketImage from "@images/loket.png";
 import Image from "next/image";
 import Form from 'next/form'
 
