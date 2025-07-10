@@ -1,13 +1,17 @@
 .nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(142, 22, 22, 0.5254901961);
+  background-color: #470202;
   padding: 1rem 3rem;
   color: #F8BD00;
   font-size: 1.2rem;
   font-family: "Bitcount Grid Double", sans-serif;
   font-weight: bold;
+  z-index: 1;
 }
 .nav .logo {
   height: 50px;
@@ -21,4 +25,74 @@
   align-items: center;
   justify-content: center;
   gap: 5rem;
+}
+.nav .navLinks .close {
+  display: none;
+}
+.nav .navLinks .links img {
+  display: none;
+}
+
+@media screen and (max-width: 720px) {
+  .nav {
+    padding: 1rem;
+    z-index: 1;
+  }
+  .navLinks {
+    flex-direction: column;
+    gap: 0 !important;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color: #470202;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    border-radius: 20px 20px 0 0;
+    transition: all 0.5s ease;
+    transform: translateY(110%);
+  }
+  .navLinks .close {
+    display: block !important;
+  }
+  .navLinks .links {
+    margin: 1rem 0;
+    position: relative;
+    width: 100%;
+  }
+  .navLinks .links a {
+    display: block;
+  }
+  .navLinks .links img {
+    position: absolute;
+    display: block !important;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+  }
+  .navLinks.show {
+    transform: translateY(0);
+  }
+  .navLinks .burgerIcon {
+    display: block;
+  }
+  .navLinks .loginButton {
+    width: 100%;
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .navLinks::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5px;
+    width: 75px;
+    background-color: white;
+    border-radius: 10px;
+  }
 }

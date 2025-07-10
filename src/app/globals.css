@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -25,6 +26,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.unscroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -37,12 +53,33 @@ a {
 }
 
 .is-active {
-  color: white;
+  color: black;
   background-color: #EDCB7D;
   border-radius: 5px;
   padding: 0.2rem 0.5rem;
   font-weight: bold;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.ticketButton {
+  background: linear-gradient(45deg, #F8BD00, #926F00);
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 20px;
+}
+
+.ticketButton:hover {
+  background: linear-gradient(45deg, #926F00, #F8BD00);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
+}
+
+.is-hidden {
+  display: none;
 }
 
 @media (prefers-color-scheme: dark) {
