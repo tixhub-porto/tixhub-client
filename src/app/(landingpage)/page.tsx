@@ -13,6 +13,43 @@ export default function Home() {
             <button className="ticketButton">Get Ticket Now</button>
           </div>
         </div>
+        <div className={styles.categorySection}>
+          <div className={styles.categoryContainer}>
+            <h1>Category Event</h1>
+            <div className={styles.categoryList}>
+              <div className={styles.categoryCard + " " + styles.concert}>
+                <p className={styles.categoryCardDescription}>
+                  Concert
+                </p>
+              </div>
+              <div className={styles.categoryCard + " " + styles.festival}>
+                <p className={styles.categoryCardDescription}>
+                  Festival
+                </p>
+              </div>
+              <div className={styles.categoryCard + " " + styles.theater}>
+                <p className={styles.categoryCardDescription}>
+                  Theater
+                </p>
+              </div>
+              <div className={styles.categoryCard + " " + styles.art}>
+                <p className={styles.categoryCardDescription}>
+                  Art
+                </p>
+              </div>
+              <div className={styles.categoryCard + " " + styles.business}>
+                <p className={styles.categoryCardDescription}>
+                  Business
+                </p>
+              </div>
+              <div className={styles.categoryCard + " " + styles.sport}>
+                <p className={styles.categoryCardDescription}>
+                  Sport
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className={styles.listTicketContainer}>
           <div className={styles.listTicket}>
             <h1>Ready to Rock?</h1>

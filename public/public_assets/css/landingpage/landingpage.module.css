@@ -38,6 +38,90 @@
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
   transform: translateY(-4px);
 }
+.landingPageSection .categorySection {
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem 5rem;
+}
+.landingPageSection .categorySection .categoryContainer {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard {
+  width: calc((100% - 8rem) / 8);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 10px;
+  min-height: 150px;
+  position: relative;
+  text-align: center;
+  background-color: white;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.concert {
+  background-color: rgb(0, 153, 255);
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.concert::before {
+  background: url("https://img.icons8.com/3d-fluency/94/rock-music.png") no-repeat center center/cover;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.theater {
+  background-color: rgb(143, 0, 0);
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.theater::before {
+  background: url("https://img.icons8.com/3d-fluency/94/3d-glasses.png") no-repeat center center/cover;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.festival {
+  background-color: rgb(255, 255, 255);
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.festival::before {
+  background: url("https://img.icons8.com/3d-fluency/94/circus-tent.png") no-repeat center center/cover;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.art {
+  background-color: rgb(239, 233, 48);
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.art::before {
+  background: url("https://img.icons8.com/3d-fluency/94/paint-palette.png") no-repeat center center/cover;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.sport {
+  background-color: rgb(107, 216, 53);
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.sport::before {
+  background: url("https://img.icons8.com/3d-fluency/94/football2.png") no-repeat center center/cover;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.business {
+  background-color: rgb(230, 132, 66);
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.business::before {
+  background: url("https://img.icons8.com/3d-fluency/94/analytics.png") no-repeat center center/cover;
+}
+.landingPageSection .categorySection .categoryContainer .categoryList .categoryCard .categoryCardDescription {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: auto;
+  z-index: 1;
+}
 .landingPageSection .listTicketContainer {
   width: 100%;
   height: 100%;
