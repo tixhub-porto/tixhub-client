@@ -36,7 +36,6 @@
 @media screen and (max-width: 720px) {
   .nav {
     padding: 1rem;
-    z-index: 1;
   }
   .navLinks {
     flex-direction: column;

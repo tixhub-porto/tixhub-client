@@ -1,5 +1,6 @@
 'use client';
 import styles from "@css/navbar/navbar.module.css";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 export default function Navbar() {
     const [isMobile, setIsMobile] = useState(false);
@@ -48,9 +49,9 @@ export default function Navbar() {
     const toggleMenu = () => setMenuOpen(!menuOpen);
     return (<>
         <nav className={styles.nav}>
-            <div className={styles.logo}>
+            <Link href="/" className={styles.logo}>
                 <img src="images/logo.png" alt="Logo" />
-            </div>
+            </Link>
             {isMobile && (
                 <div className={styles.burgerIcon} onClick={toggleMenu}>
                     <span className={menuOpen ? styles.show : ""}>☰</span>

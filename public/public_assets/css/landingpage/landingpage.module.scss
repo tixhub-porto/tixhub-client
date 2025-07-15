@@ -70,87 +70,62 @@
                 align-items: center;
                 justify-content: center;
                 gap: 1rem;
+                flex-wrap: wrap;
+                z-index: -1;
 
                 .categoryCard {
-                    width: calc((100% - 8rem) / 8);
+                    width: calc((100% - 6rem) / 6);
                     display: flex;
                     flex-direction: column;
                     padding: 1rem;
                     border-radius: 10px;
-                    min-height: 150px;
                     position: relative;
-                    text-align: center;
-                    background-color: white;
-
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        width: 50%;
-                        height: 50%;
-                        transform: translateX(-50%) translateY(-50%);
-                    }
+                    align-items: center;
+                    gap: .5rem;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
 
                     &.concert {
-                        background-color: rgb(0, 153, 255);
-
-                        &::before {
-
-                            background: url("https://img.icons8.com/3d-fluency/94/rock-music.png") no-repeat center center / cover;
-                        }
+                        background: linear-gradient(159deg, #e17016, #063771);
                     }
 
                     &.theater {
-                        background-color: rgb(143, 0, 0);
-
-                        &::before {
-
-                            background: url("https://img.icons8.com/3d-fluency/94/3d-glasses.png") no-repeat center center / cover;
-                        }
+                        background: linear-gradient(159deg, #a80000, #005503);
                     }
 
                     &.festival {
-                        background-color: rgb(255, 255, 255);
-
-                        &::before {
-
-                            background: url("https://img.icons8.com/3d-fluency/94/circus-tent.png") no-repeat center center / cover;
-                        }
+                        background: linear-gradient(159deg, #d3008d, #0f16f3);
                     }
 
                     &.art {
-                        background-color: rgb(239, 233, 48);
-
-                        &::before {
-
-                            background: url("https://img.icons8.com/3d-fluency/94/paint-palette.png") no-repeat center center / cover;
-                        }
+                        background: linear-gradient(159deg, #0363e7, #8e9c00);
                     }
 
                     &.sport {
-                        background-color: rgb(107, 216, 53);
-
-                        &::before {
-
-                            background: url("https://img.icons8.com/3d-fluency/94/football2.png") no-repeat center center / cover;
-                        }
+                        background: linear-gradient(159deg, #e0b600, #2c8902);
                     }
 
                     &.business {
-                        background-color: rgb(230, 132, 66);
+                        background: linear-gradient(159deg, #429ee6, #8f2828);
+                    }
 
-                        &::before {
-
-                            background: url("https://img.icons8.com/3d-fluency/94/analytics.png") no-repeat center center / cover;
-                        }
+                    img {
+                        width: 100px;
+                        transition: all 0.2s ease-in-out;
                     }
 
                     .categoryCardDescription {
                         font-size: 15px;
                         font-weight: bold;
                         margin-top: auto;
-                        z-index: 1;
+                    }
+
+                    &:hover{
+                        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+                        transform: translateY(-4px);
+                        img{
+                            transform: scale(1.1);
+                        }
                     }
                 }
             }
@@ -237,6 +212,24 @@
                 .cardContainer {
                     .card {
                         width: 100%;
+                    }
+                }
+            }
+        }
+
+        .categorySection {
+            padding: 1rem;
+
+            .categoryContainer {
+                padding: 0;
+
+                .categoryList {
+                    .categoryCard {
+                        width: calc((100% - 2rem) / 3);
+
+                        img {
+                            width: 75px;
+                        }
                     }
                 }
             }

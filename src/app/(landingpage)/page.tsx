@@ -1,7 +1,27 @@
 import Navbar from "@/components/Navbar";
 import styles from "@css/landingpage/landingpage.module.css";
+import Link from "next/link";
 
 export default function Home() {
+  const category = [{
+    label: "Concert",
+    image: "https://img.icons8.com/3d-fluency/94/rock-music.png",
+  }, {
+    label: "Festival",
+    image: "https://img.icons8.com/3d-fluency/94/circus-tent.png",
+  }, {
+    label: "Art",
+    image: "https://img.icons8.com/3d-fluency/94/paint-palette.png",
+  }, {
+    label: "Sport",
+    image: "https://img.icons8.com/3d-fluency/94/football2.png",
+  }, {
+    label: "Business",
+    image: "https://img.icons8.com/3d-fluency/94/analytics.png",
+  }, {
+    label: "Theater",
+    image: "https://img.icons8.com/3d-fluency/94/3d-glasses.png",
+  }]
   return (
     <>
       <Navbar />
@@ -17,36 +37,14 @@ export default function Home() {
           <div className={styles.categoryContainer}>
             <h1>Category Event</h1>
             <div className={styles.categoryList}>
-              <div className={styles.categoryCard + " " + styles.concert}>
-                <p className={styles.categoryCardDescription}>
-                  Concert
-                </p>
-              </div>
-              <div className={styles.categoryCard + " " + styles.festival}>
-                <p className={styles.categoryCardDescription}>
-                  Festival
-                </p>
-              </div>
-              <div className={styles.categoryCard + " " + styles.theater}>
-                <p className={styles.categoryCardDescription}>
-                  Theater
-                </p>
-              </div>
-              <div className={styles.categoryCard + " " + styles.art}>
-                <p className={styles.categoryCardDescription}>
-                  Art
-                </p>
-              </div>
-              <div className={styles.categoryCard + " " + styles.business}>
-                <p className={styles.categoryCardDescription}>
-                  Business
-                </p>
-              </div>
-              <div className={styles.categoryCard + " " + styles.sport}>
-                <p className={styles.categoryCardDescription}>
-                  Sport
-                </p>
-              </div>
+              {category.map((item, index) => (
+                <Link href={`/category/${item.label.toLowerCase()}`} key={index} className={styles.categoryCard + " " + styles[item.label.toLowerCase()]}>
+                  <img src={item.image} alt={item.label} />
+                  <p className={styles.categoryCardDescription}>
+                    {item.label}
+                  </p>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
