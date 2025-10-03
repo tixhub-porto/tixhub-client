@@ -71,7 +71,7 @@ export default function Navbar() {
                     <img width="15" height="15" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png" alt="more-than" />
                 </div>
                 <div className={styles.links}>
-                    <a href="#">Help</a>
+                    <a href="/about">About</a>
                     <img width="15" height="15" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png" alt="more-than" />
                 </div>
                 {isMobile && (

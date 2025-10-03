@@ -1,0 +1,80 @@
+.aboutPageSection {
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+}
+.aboutPageSection .aboutTextContainer {
+  padding: 1rem;
+  text-align: center;
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  justify-content: center;
+  height: 100%;
+}
+.aboutPageSection .aboutTextContainer.left {
+  justify-content: flex-start;
+}
+.aboutPageSection .aboutTextContainer .aboutText {
+  display: flex;
+  gap: 1rem;
+  background-color: #ffe9b7;
+  padding: 1rem;
+  width: 700px;
+  text-align: justify;
+  border-radius: 10px;
+}
+.aboutPageSection .aboutTextContainer .aboutText:not(:last-child) {
+  margin-bottom: 5rem;
+}
+.aboutPageSection .aboutTextContainer .aboutText.left {
+  margin-right: auto;
+}
+.aboutPageSection .aboutTextContainer .aboutText.left .textBox {
+  padding-right: 6rem;
+  margin-left: auto;
+}
+.aboutPageSection .aboutTextContainer .aboutText.left .textBox .imageContainer {
+  right: -80px;
+  left: unset;
+}
+.aboutPageSection .aboutTextContainer .aboutText.right {
+  margin-left: auto;
+}
+.aboutPageSection .aboutTextContainer .aboutText.right .textBox {
+  padding-left: 6rem;
+  margin-right: auto;
+}
+.aboutPageSection .aboutTextContainer .aboutText.right .textBox .imageContainer {
+  left: -80px;
+  right: unset;
+}
+.aboutPageSection .aboutTextContainer .aboutText .textBox {
+  position: relative;
+  width: 75%;
+  color: #470202;
+}
+.aboutPageSection .aboutTextContainer .aboutText .textBox h1 {
+  color: #f8bd00;
+  font-weight: bold;
+}
+.aboutPageSection .aboutTextContainer .aboutText .textBox span {
+  font-size: 14px;
+  text-align: center;
+}
+.aboutPageSection .aboutTextContainer .aboutText .textBox .imageContainer {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid white;
+}
+.aboutPageSection .aboutTextContainer .aboutText .textBox .imageContainer img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

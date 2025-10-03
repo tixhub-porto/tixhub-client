@@ -41,9 +41,14 @@
                     width: 100%;
                     background: white;
                     color: black;
+                    overflow: hidden;
 
                     &:focus {
                         outline: none;
+                    }
+
+                    &::placeholder {
+                        width: max-content;
                     }
 
                 }
@@ -221,15 +226,13 @@
 @media screen and (max-width: 720px) {
 
     .landingPageSection {
-        .listTicketContainer {
-            padding: 1rem 2rem;
-
-            .listTicket {
-                .cardContainer {
-                    .card {
-                        width: 100%;
-                    }
+        .mainEventsContainer {
+            .mainEvents {
+                .searchContainer {
+                    width: 100%;
+                    max-width: 300px;
                 }
+
             }
         }
 
@@ -246,6 +249,18 @@
                         img {
                             width: 75px;
                         }
+                    }
+                }
+            }
+        }
+
+        .listTicketContainer {
+            padding: 1rem 2rem;
+
+            .listTicket {
+                .cardContainer {
+                    .card {
+                        width: 100%;
                     }
                 }
             }

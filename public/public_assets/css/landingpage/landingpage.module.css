@@ -34,9 +34,18 @@
   width: 100%;
   background: white;
   color: black;
+  overflow: hidden;
 }
 .landingPageSection .mainEventsContainer .mainEvents .searchContainer .searchInput:focus {
   outline: none;
+}
+.landingPageSection .mainEventsContainer .mainEvents .searchContainer .searchInput::-moz-placeholder {
+  width: -moz-max-content;
+  width: max-content;
+}
+.landingPageSection .mainEventsContainer .mainEvents .searchContainer .searchInput::placeholder {
+  width: -moz-max-content;
+  width: max-content;
 }
 .landingPageSection .mainEventsContainer .mainEvents .searchContainer::after {
   content: "";
@@ -182,11 +191,9 @@
 }
 
 @media screen and (max-width: 720px) {
-  .landingPageSection .listTicketContainer {
-    padding: 1rem 2rem;
-  }
-  .landingPageSection .listTicketContainer .listTicket .cardContainer .card {
+  .landingPageSection .mainEventsContainer .mainEvents .searchContainer {
     width: 100%;
+    max-width: 300px;
   }
   .landingPageSection .categorySection {
     padding: 1rem;
@@ -199,5 +206,11 @@
   }
   .landingPageSection .categorySection .categoryContainer .categoryList .categoryCard img {
     width: 75px;
+  }
+  .landingPageSection .listTicketContainer {
+    padding: 1rem 2rem;
+  }
+  .landingPageSection .listTicketContainer .listTicket .cardContainer .card {
+    width: 100%;
   }
 }

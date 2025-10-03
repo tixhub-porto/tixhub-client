@@ -9,13 +9,13 @@
   background-color: #8E1616;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 20px;
   height: 600px;
   width: -moz-fit-content;
   width: fit-content;
   min-width: 50%;
-  gap: 1rem;
+  gap: 3rem;
 }
 .bigContainer .containerForm .formLogin {
   flex: 1;
