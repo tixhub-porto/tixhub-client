@@ -24,28 +24,42 @@
             }
 
             .eventTitle {
-                font-family: 'Gaegu', 'serif';
-                font-size: 40px;
+                font-size: 50px;
                 font-weight: bold;
-                margin: 0;
+                margin-bottom: .5rem;
             }
 
-            .ticketButton {
-                background: linear-gradient(45deg, #F8BD00, #926F00);
-                border: none;
-                border-radius: 20px;
-                padding: 0.5rem 1rem;
-                color: white;
-                cursor: pointer;
-                transition: all 0.2s ease-in-out;
-                font-size: 20px;
+            .searchContainer {
+                position: relative;
+                width: 50%;
+                max-width: 500px;
+
+                .searchInput {
+                    border: none;
+                    border-radius: 10px;
+                    padding: 1rem;
+                    width: 100%;
+                    background: white;
+                    color: black;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                }
+
+                &::after {
+                    content: "";
+                    background: url("https://cdn-icons-png.flaticon.com/512/149/149852.png") no-repeat center center / cover;
+                    position: absolute;
+                    right: 1rem;
+                    width: 20px;
+                    height: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
             }
 
-            .ticketButton:hover {
-                background: linear-gradient(45deg, #926F00, #F8BD00);
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-                transform: translateY(-4px);
-            }
         }
     }
 
@@ -120,10 +134,11 @@
                         margin-top: auto;
                     }
 
-                    &:hover{
+                    &:hover {
                         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
                         transform: translateY(-4px);
-                        img{
+
+                        img {
                             transform: scale(1.1);
                         }
                     }
@@ -144,6 +159,7 @@
             flex-direction: column;
             flex-wrap: wrap;
             justify-content: center;
+            padding: 1.5rem;
             gap: 1rem;
 
             .cardContainer {

@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import styles from "@css/landingpage/landingpage.module.css";
 import Link from "next/link";
@@ -28,9 +29,11 @@ export default function Home() {
       <section className={styles.landingPageSection}>
         <div className={styles.mainEventsContainer}>
           <div className={styles.mainEvents}>
-            <span className={styles.eventTitle}>New Year Music Event</span>
-            <span>Come Join The Event Now</span>
-            <button className="ticketButton">Get Ticket Now</button>
+            <span className={styles.eventTitle}>Find Your Next Experience</span>
+            <span>Discover events happening near you, from concerts to sports games and more.</span>
+            <div className={styles.searchContainer}>
+              <input type="text" className={styles.searchInput} placeholder="Search Events, Venues, and more" />
+            </div>
           </div>
         </div>
         <div className={styles.categorySection}>
@@ -88,6 +91,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

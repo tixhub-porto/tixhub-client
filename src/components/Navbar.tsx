@@ -63,11 +63,15 @@ export default function Navbar() {
                     <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/more-than.png" alt="more-than" />
                 </div>
                 <div className={styles.links}>
-                    <a href="#">Ticket</a>
+                    <a href="#">Categories</a>
                     <img width="15" height="15" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png" alt="more-than" />
                 </div>
                 <div className={styles.links}>
-                    <a href="#">About Us</a>
+                    <a href="#">My Tickets</a>
+                    <img width="15" height="15" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png" alt="more-than" />
+                </div>
+                <div className={styles.links}>
+                    <a href="#">Help</a>
                     <img width="15" height="15" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png" alt="more-than" />
                 </div>
                 {isMobile && (
