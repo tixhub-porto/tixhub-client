@@ -14,6 +14,7 @@ interface FormLoginProps {
 export default function FormLogin({ onToggle }: FormLoginProps) {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -51,7 +52,24 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
                     <Form onSubmit={handleSubmit} action="">
                         <span>Please Enter Your Details</span>
                         <input name="email" placeholder="Email" />
-                        <input name="password" placeholder="Password" />
+                        <div className={styles.passwordWrapper}>
+                            <input
+                                name="password"
+                                placeholder="Password"
+                                type={showPassword ? "text" : "password"}
+                                required
+                            />
+                            <span
+                                className={styles.eyeIcon}
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ?
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4298/4298899.png" alt="" />
+                                    :
+                                    <img src="https://cdn-icons-png.flaticon.com/512/565/565655.png" alt="" />
+                                }
+                            </span>
+                        </div>
                         <span className={styles.forgotPassword}>Forgot Password</span>
                         <span className={styles.register}>Dont Have Account? <span className={styles.forgotPassword} onClick={onToggle}>Sign Up</span> </span>
                         <button className={styles.submitButton}>Login</button>

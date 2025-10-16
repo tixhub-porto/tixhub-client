@@ -36,6 +36,21 @@
   font-size: 12px;
   text-align: center;
 }
+.bigContainer .containerForm .formLogin form span img {
+  width: 20px;
+  height: 20px;
+}
+.bigContainer .containerForm .formLogin form .passwordWrapper {
+  width: 100%;
+  position: relative;
+}
+.bigContainer .containerForm .formLogin form .passwordWrapper span {
+  position: absolute;
+  right: 5px;
+  top: 55%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .bigContainer .containerForm .formLogin form input {
   background-color: white;
   color: black;

@@ -40,6 +40,23 @@ $iconButton: (
                 span {
                     font-size: 12px;
                     text-align: center;
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                .passwordWrapper {
+                    width: 100%;
+                    position: relative;
+
+                    span {
+                        position: absolute;
+                        right: 5px;
+                        top: 55%;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                    }
                 }
 
                 input {

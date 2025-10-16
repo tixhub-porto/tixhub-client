@@ -5,6 +5,18 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isLogin, setIsLogin] = useState(false)
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        setIsLogin(!!token);
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        setIsLogin(false);
+        window.location.href = "/login";
+    };
 
     const handleResize = () => {
         setIsMobile(window.innerWidth < 768);
@@ -75,12 +87,27 @@ export default function Navbar() {
                     <img width="15" height="15" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png" alt="more-than" />
                 </div>
                 {isMobile && (
-                    <a className={`${styles.loginButton} ticketButton`}>Login</a>
+                    isLogin ? (
+                        <span
+                            onClick={handleLogout}
+                            className={`${styles.loginButton} ticketButton`}
+                        >
+                            Logout
+                        </span>
+                    ) : (
+                        <Link href="/login" className={`${styles.loginButton} ticketButton`}>
+                            Login
+                        </Link>
+                    )
                 )}
             </div>
             {!isMobile && (
                 <div className={styles.username}>
-                    <a href="/login">Login</a>
+                    {isLogin ? (
+                        <span onClick={handleLogout}>Logout</span>
+                    ) : (
+                        <Link href="/login">Login</Link>
+                    )}
                 </div>
             )}
         </nav>
