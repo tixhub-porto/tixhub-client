@@ -26,6 +26,7 @@
             width: 700px;
             text-align: justify;
             border-radius: 10px;
+            min-height: 177px;
 
             &:not(:last-child) {
                 margin-bottom: 5rem;
@@ -92,4 +93,28 @@
 
         }
     }
+}
+
+@media screen and (max-width: 720px) {
+    .aboutPageSection {
+        .aboutTextContainer {
+            .aboutText {
+                width: 100%;
+
+                .textBox {
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    width: 100%;
+
+                    .imageContainer{
+                        transform: translateX(-50%);
+                        bottom: 0;
+                        right: 15px !important;
+                        left: unset !important;
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -25,6 +25,7 @@
   width: 700px;
   text-align: justify;
   border-radius: 10px;
+  min-height: 177px;
 }
 .aboutPageSection .aboutTextContainer .aboutText:not(:last-child) {
   margin-bottom: 5rem;
@@ -77,4 +78,21 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media screen and (max-width: 720px) {
+  .aboutPageSection .aboutTextContainer .aboutText {
+    width: 100%;
+  }
+  .aboutPageSection .aboutTextContainer .aboutText .textBox {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+  }
+  .aboutPageSection .aboutTextContainer .aboutText .textBox .imageContainer {
+    transform: translateX(-50%);
+    bottom: 0;
+    right: 15px !important;
+    left: unset !important;
+  }
 }

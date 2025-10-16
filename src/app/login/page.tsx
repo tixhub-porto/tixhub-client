@@ -1,17 +1,52 @@
+"use client";
 import styles from "@css/login/login.module.css";
 import loketImage from "@images/loket.png";
 import Image from "next/image";
 import Form from 'next/form'
+import React, { useState } from "react";
+import axios from "axios";
+import { envConfig } from "@/config/config";
 
 export default function Login() {
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+    const formData = new FormData(e.currentTarget)
+    const username = formData.get("email") as string
+    const password = formData.get("password") as string
+    try {
+      const response = await axios.post("api/login", { username, password });
+
+      if (response.status === 200) {
+        const data = response.data;
+        setMessage("Login successful ✅");
+
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+        }
+
+        // Redirect to dashboard
+        // window.location.href = "/";
+      }
+
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
     <section className={styles.bigContainer}>
       <div className={styles.containerForm}>
         <div className={styles.formLogin}>
           <h1>Log in / Register</h1>
-          <Form action="">
+          <Form onSubmit={handleSubmit} action="">
             <span>Please Enter Your Details</span>
-            <input name="Email" placeholder="Email" />
+            <input name="email" placeholder="Email" />
             <input name="password" placeholder="Password" />
             <span className={styles.forgotPassword}>Forgot Password</span>
             <button className={styles.submitButton}>Login</button>
