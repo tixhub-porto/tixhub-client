@@ -159,10 +159,11 @@
   min-height: 350px;
   position: relative;
   text-align: center;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
 }
 .landingPageSection .listTicketContainer .listTicket .cardContainer .card::before {
   content: "";
-  background: url("../../../images/nirvana_poster.png") no-repeat center center/cover;
+  background: var(--image-url) no-repeat center center/cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -182,6 +183,7 @@
 }
 .landingPageSection .listTicketContainer .listTicket .cardContainer .card .cardContent p {
   margin: 0;
+  font-weight: bold;
   font-size: 14px;
 }
 .landingPageSection .listTicketContainer .listTicket .cardContainer .card .cardContent .ticketButtonCard {

@@ -1,9 +1,31 @@
+'use client'
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import styles from "@css/landingpage/landingpage.module.css";
+import axios from "axios";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [event, setEvent] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchDataEvent = async () => {
+      try {
+        const res = await axios.get("/api/event")
+        console.log("🚀 ~ fetchDataEvent ~ res.data.data:", res.data.data)
+        setEvent(res.data.data)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchDataEvent();
+  }, [])
+
+
   const category = [{
     label: "Concert",
     image: "https://img.icons8.com/3d-fluency/94/rock-music.png",
@@ -54,40 +76,22 @@ export default function Home() {
         <div className={styles.listTicketContainer}>
           <div className={styles.listTicket}>
             <h1>Ready to Rock?</h1>
-            <div className={styles.cardContainer}>
-              <div className={styles.card}>
-                <div className={styles.cardContent}>
-                  <p className={styles.cardDescription}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <button className={`ticketButton ${styles.ticketButtonCard}`}>Buy Ticket</button>
-                </div>
+            {loading ? (
+              <p>Loading events...</p>
+            ) : event.length === 0 ? (
+              <p>No events found</p>
+            ) : (
+              <div className={styles.cardContainer}>
+                {event.map((e, i) => (
+                  <div key={i} className={styles.card} style={{ "--image-url": `url(${e.image})` } as React.CSSProperties}>
+                    <div className={styles.cardContent}>
+                      <p className={styles.cardDescription}>{e.description || "No description"}</p>
+                      <button className={`ticketButton ${styles.ticketButtonCard}`}>Buy Ticket</button>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className={styles.card}>
-                <div className={styles.cardContent}>
-                  <p className={styles.cardDescription}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <button className={`ticketButton ${styles.ticketButtonCard}`}>Buy Ticket</button>
-                </div>
-              </div>
-              <div className={styles.card}>
-                <div className={styles.cardContent}>
-                  <p className={styles.cardDescription}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <button className={`ticketButton ${styles.ticketButtonCard}`}>Buy Ticket</button>
-                </div>
-              </div>
-              <div className={styles.card}>
-                <div className={styles.cardContent}>
-                  <p className={styles.cardDescription}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <button className={`ticketButton ${styles.ticketButtonCard}`}>Buy Ticket</button>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </section>

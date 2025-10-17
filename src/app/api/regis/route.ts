@@ -1,6 +1,6 @@
-import { fetchBE } from "@/helper/helper";
+import { fetchPostBE } from "@/helper/helper";
 
 export async function POST(request: Request) {
     const body = await request.json();
-    return fetchBE("/regis", body);
+    return fetchPostBE("/regis", body);
 }
