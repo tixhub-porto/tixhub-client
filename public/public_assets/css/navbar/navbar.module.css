@@ -32,6 +32,9 @@
 .nav .navLinks .links img {
   display: none;
 }
+.nav .username .loginButton {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 720px) {
   .nav {

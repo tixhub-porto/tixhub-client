@@ -79,7 +79,6 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  z-index: -1;
 }
 .landingPageSection .categorySection .categoryContainer .categoryList .categoryCard {
   width: calc((100% - 6rem) / 6);
@@ -150,7 +149,6 @@
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-  z-index: -1;
 }
 .landingPageSection .listTicketContainer .listTicket .cardContainer .card {
   width: calc((100% - 6rem) / 4);

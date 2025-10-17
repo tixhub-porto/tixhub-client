@@ -90,7 +90,6 @@
                 justify-content: center;
                 gap: 1rem;
                 flex-wrap: wrap;
-                z-index: -1;
 
                 .categoryCard {
                     width: calc((100% - 6rem) / 6);
@@ -175,7 +174,6 @@
                 align-items: center;
                 gap: 2rem;
                 flex-wrap: wrap;
-                z-index: -1;
 
                 .card {
                     width: calc((100% - 6rem) / 4);
