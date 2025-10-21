@@ -14,7 +14,6 @@ export default function Home() {
     const fetchDataEvent = async () => {
       try {
         const res = await axios.get("/api/event")
-        console.log("🚀 ~ fetchDataEvent ~ res.data.data:", res.data.data)
         setEvent(res.data.data)
       } catch (error) {
         console.error(error)
