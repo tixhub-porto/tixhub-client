@@ -77,7 +77,7 @@ export default function Navbar() {
                     <img width="20" height="20" src={pathname === "/" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
                 </div>
                 <div className={styles.links}>
-                    <a href="#" className={pathname === "/categories" ? "is-active" : ""}>Categories</a>
+                    <a href="/categories" className={pathname === "/categories" ? "is-active" : ""}>Categories</a>
                     <img width="15" height="15" src={pathname === "/categories" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
                 </div>
                 {

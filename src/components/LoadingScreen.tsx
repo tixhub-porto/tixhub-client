@@ -1,7 +1,14 @@
 import styles from "@css/loadingscreen/loadingscreen.module.css";
+import { useEffect } from "react";
 
 export default function LoadingScreen() {
     const link = "https://shorturl.at/ibJ8X"
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
     return (
         <>
             <div className={styles.loadingScreenContainer}>

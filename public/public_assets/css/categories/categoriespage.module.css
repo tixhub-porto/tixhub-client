@@ -1,0 +1,17 @@
+.bigContainer {
+  padding: 1rem;
+  margin-top: 5rem;
+}
+.bigContainer .carouselContainer {
+  display: flex;
+  gap: 1rem;
+}
+.bigContainer .carouselContainer .card {
+  background-color: #F8BD00;
+  padding: 0.5rem;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  min-width: 50px;
+  text-align: center;
+}
