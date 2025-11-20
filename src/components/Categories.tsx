@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 export default function Categories() {
     const [category, setCategory] = useState<any[]>([]);
     const { setLoading } = useLoading();
+    const [sliderValue, setSliderValue] = useState(1);
+    const [event, setEvent] = useState<any[]>([]);
 
     useEffect(() => {
         setLoading(true);
@@ -14,13 +16,12 @@ export default function Categories() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let categoryRes = await axios.get("/api/category");
-                categoryRes.data.data.unshift({
-                    IDCategory: "1",
-                    Category: "All Categories"
-                })
-                let finalData = categoryRes.data.data
-                setCategory(finalData);
+                const [eventRes, categoryRes] = await Promise.all([
+                    axios.get("/api/event"),
+                    axios.get("/api/category"),
+                ]);
+                setEvent(eventRes.data.data);
+                setCategory(categoryRes.data.data);
             } catch (error) {
                 console.error(error);
             } finally {
@@ -30,8 +31,9 @@ export default function Categories() {
         fetchData();
     }, []);
 
-    setLoading(false);
-
+    const handlerSort = (e: any) => {
+        setSliderValue(e.target.value);
+    };
 
     return (
         <>
@@ -39,11 +41,71 @@ export default function Categories() {
                 <div className={styles.carouselContainer}>
                     {
                         category.map((item) => (
-                            <div className={`${styles.card} ${item.IDCategory}`}>
+                            <div key={item.IDCategory} className={`${styles.card} ${item.IDCategory}`}>
                                 <span>{item.Category}</span>
                             </div>
                         ))
                     }
+                </div>
+                <div className={styles.productContent}>
+                    <div className={styles.sortContainer}>
+                        <div className={styles.sortPrice}>
+                            <span>Price Range</span>
+                            <input
+                                className={styles.slider}
+                                onChange={handlerSort}
+                                type="range"
+                                min="1"
+                                max="100"
+                                value={sliderValue}
+                            />
+                        </div>
+                        <div className={styles.sortLocation}>
+                            <span>Location</span>
+                            <div className={styles.checkboxContainer}>
+                                <div className={styles.checkbox}>
+                                    <label>Indonesia</label>
+                                    <input type="checkbox" id="Indonesia" name="Indonesia" />
+                                </div>
+                                <div className={styles.checkbox}>
+                                    <label>Singapore</label>
+                                    <input type="checkbox" id="Singapore" name="Singapore" />
+                                </div>
+                                <div className={styles.checkbox}>
+                                    <label>Japan</label>
+                                    <input type="checkbox" id="Japan" name="Japan" />
+                                </div>
+                                <div className={styles.checkbox}>
+                                    <label>Spain</label>
+                                    <input type="checkbox" id="Spain" name="Spain" />
+                                </div>
+                                <div className={styles.checkbox}>
+                                    <label>Brazil</label>
+                                    <input type="checkbox" id="Brazil" name="Brazil" />
+                                </div>
+                                <div className={styles.checkbox}>
+                                    <label>Online</label>
+                                    <input type="checkbox" id="Online" name="Online" />
+                                </div>
+                                <div className={styles.checkbox}>
+                                    <label>Others</label>
+                                    <input type="checkbox" id="Others" name="Others" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.productContainer}>
+                        <div className={styles.cardContainer}>
+                            {event.map((e, i) => (
+                                <div key={i} className={styles.card} style={{ "--image-url": `url(${e.image})` } as React.CSSProperties}>
+                                    <div className={styles.cardContent}>
+                                        <p className={styles.cardDescription}>{e.description || "No description"}</p>
+                                        <button className={`ticketButton ${styles.ticketButtonCard}`}>Buy Ticket</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

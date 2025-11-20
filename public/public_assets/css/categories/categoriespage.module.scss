@@ -3,10 +3,12 @@
 .bigContainer {
     padding: 1rem;
     margin-top: 5rem;
+    height: 100vh;
 
     .carouselContainer {
         display: flex;
-        gap: 1rem;
+        gap: 1.5rem;
+        align-items: center;
 
         .card {
             background-color: $yellowOrange;
@@ -16,6 +18,160 @@
             cursor: pointer;
             min-width: 50px;
             text-align: center;
+
+            &:hover {
+                background-color: #EDCB7D;
+            }
+        }
+    }
+
+    .productContent {
+        display: flex;
+        gap: 1rem;
+        padding: 2rem 0;
+        height: 100%;
+
+        .sortContainer {
+            background-color: $darkRed;
+            height: 100%;
+            padding: 1rem;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+            max-width: 250px;
+
+            span {
+                font-weight: bold;
+                font-size: large;
+                color: $yellowOrange;
+            }
+
+            .sortPrice {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                gap: .5rem;
+
+                .slider {
+                    height: 25px;
+                    background-color: black;
+                    outline: none;
+                    opacity: 0.7;
+                    transition: opacity .2s;
+                    cursor: pointer;
+                    width: 100%;
+                    background: black;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    &::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 18px;
+                        height: 18px;
+                        background: #ff6600;
+                        border-radius: 50%;
+                        border: 2px solid white;
+                        cursor: pointer;
+                    }
+
+                    &::-webkit-slider-runnable-track {
+                        background: black;
+                        border-radius: 4px;
+                    }
+                }
+            }
+
+            .sortLocation {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                width: 100%;
+
+                .checkboxContainer {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    width: 100%;
+
+                    .checkbox {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: .2rem;
+                        width: 100%;
+
+                        label {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .productContainer {
+            height: 100%;
+            width: 100%;
+            flex: 1;
+
+            .cardContainer {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+
+                .card {
+                    width: calc((100% - 6rem) / 4);
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    min-height: 350px;
+                    position: relative;
+                    text-align: center;
+                    background-image: linear-gradient(to top, rgba(black, 0.8), transparent);
+
+                    &::before {
+                        content: '';
+                        background: var(--image-url) no-repeat center center/cover;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: -1;
+                        border-radius: 20px;
+                    }
+
+                    .cardContent {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        align-items: center;
+                        height: 100%;
+                        gap: 1rem;
+                        margin-top: auto;
+
+                        p {
+                            margin: 0;
+                            font-weight: bold;
+                            font-size: 14px;
+                        }
+
+                        .ticketButtonCard {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
         }
     }
 }

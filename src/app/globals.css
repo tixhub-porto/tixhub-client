@@ -44,6 +44,10 @@ body {
   pointer-events: none;
 }
 
+.unscroll {
+  overflow: hidden;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

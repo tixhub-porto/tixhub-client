@@ -4,9 +4,9 @@ import { useEffect } from "react";
 export default function LoadingScreen() {
     const link = "https://shorturl.at/ibJ8X"
     useEffect(() => {
-        document.body.style.overflow = "hidden";
+        document.body.classList.add("unscroll")
         return () => {
-            document.body.style.overflow = "auto";
+            document.body.classList.remove("unscroll")
         };
     }, []);
     return (
