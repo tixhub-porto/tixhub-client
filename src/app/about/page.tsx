@@ -16,7 +16,6 @@ export default function About() {
     }, []);
     return (
         <>
-            <Navbar />
             <section className={styles.aboutPageSection}>
                 <div className={styles.aboutTextContainer}>
                     <div className={styles.aboutText + " " + styles.left}>
@@ -63,7 +62,6 @@ export default function About() {
                     </div>
                 </div>
             </section>
-            <Footer />
         </>
     );
 }
