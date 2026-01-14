@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "@css/footer/footer.module.css";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -7,7 +8,12 @@ export default function Footer() {
             <div className={styles.footer}>
                 <div className={styles.footerContainer}>
                     <Link href="/" className={styles.logo}>
-                        <img src="images/logo.png" alt="Logo" />
+                        <Image
+                            src="/images/logo.png"
+                            alt="Logo"
+                            width={200}
+                            height={70}
+                        />
                     </Link>
                     <p>Copyright © 2025 TixHub</p>
                 </div>

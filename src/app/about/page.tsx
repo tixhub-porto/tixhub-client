@@ -1,3 +1,4 @@
+'use client'
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import styles from "@css/about/about.module.css";
@@ -5,8 +6,14 @@ import Image from "next/image";
 import teamImage from "@images/team.png";
 import teamImage2 from "@images/team2.png";
 import teamImage3 from "@images/team3.png";
+import { useLoading } from "@/context/LoadingContext";
+import { useEffect } from "react";
 
 export default function About() {
+    const { setLoading } = useLoading();
+    useEffect(() => {
+        setLoading(false);
+    }, []);
     return (
         <>
             <Navbar />

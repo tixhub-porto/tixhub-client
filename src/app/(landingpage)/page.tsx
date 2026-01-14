@@ -1,6 +1,6 @@
 'use client'
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import { useCategory } from "@/context/CategoryContext";
+import { useEvent } from "@/context/EventContext";
 import { useLoading } from "@/context/LoadingContext";
 import styles from "@css/landingpage/landingpage.module.css";
 import axios from "axios";
@@ -8,33 +8,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [event, setEvent] = useState<any[]>([]);
-  const [category, setCategory] = useState<any[]>([]);
-  const { setLoading } = useLoading();
-
+  const { events, loading: eventLoading } = useEvent();
+  const { category, loading: categoryLoading } = useCategory();
+  const { setLoading } = useLoading()
   useEffect(() => {
-    setLoading(true);
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [eventRes, categoryRes] = await Promise.all([
-          axios.get("/api/event"),
-          axios.get("/api/category"),
-        ]);
-        setEvent(eventRes.data.data);
-        setCategory(categoryRes.data.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
-
+    setLoading(eventLoading || categoryLoading);
+  }, [eventLoading, categoryLoading, setLoading]);
 
   return (
     <>
@@ -67,11 +46,11 @@ export default function Home() {
           <div className={styles.listTicket}>
             <h1>Ready to Rock?</h1>
             <div className={styles.cardContainer}>
-              {event.map((e, i) => (
+              {events.map((e, i) => (
                 <div key={i} className={styles.card} style={{ "--image-url": `url(${e.image})` } as React.CSSProperties}>
                   <div className={styles.cardContent}>
                     <p className={styles.cardDescription}>{e.description || "No description"}</p>
-                    <button className={`ticketButton ${styles.ticketButtonCard}`}>Buy Ticket</button>
+                    <Link href={`/tickets/${e.id_event}`} className={`ticketButton ${styles.ticketButtonCard}`} >Buy Ticket</Link>
                   </div>
                 </div>
               ))}

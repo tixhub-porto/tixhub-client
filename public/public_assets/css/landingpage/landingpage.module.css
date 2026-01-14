@@ -152,6 +152,7 @@
 }
 .landingPageSection .listTicketContainer .listTicket .cardContainer .card {
   width: calc((100% - 6rem) / 4);
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -185,6 +186,11 @@
   margin: 0;
   font-weight: bold;
   font-size: 14px;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-align: left;
 }
 .landingPageSection .listTicketContainer .listTicket .cardContainer .card .cardContent .ticketButtonCard {
   width: 100%;

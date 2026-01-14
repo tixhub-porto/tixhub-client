@@ -4,6 +4,8 @@ import "./globals.css";
 import { LoadingProvider } from "@/context/LoadingContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { EventProvider } from "@/context/EventContext";
+import { CategoryProvider } from "@/context/CategoryContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +30,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <LoadingProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <CategoryProvider>
+            <EventProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </EventProvider>
+          </CategoryProvider>
         </LoadingProvider>
       </body>
     </html>

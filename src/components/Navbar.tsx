@@ -1,5 +1,6 @@
 'use client';
 import styles from "@css/navbar/navbar.module.css";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -64,7 +65,13 @@ export default function Navbar() {
     return (<>
         <nav className={styles.nav}>
             <Link href="/" className={styles.logo}>
-                <img src="images/logo.png" alt="Logo" />
+                <Image
+                    src="/images/logo.png"
+                    alt="Logo"
+                    width={120}
+                    height={40}
+                />
+
             </Link>
             {isMobile && (
                 <div className={styles.burgerIcon} onClick={toggleMenu}>
