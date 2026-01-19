@@ -41,7 +41,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
   z-index: 100;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .unscroll {

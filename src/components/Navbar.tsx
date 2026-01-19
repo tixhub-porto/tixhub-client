@@ -62,74 +62,79 @@ export default function Navbar() {
     }
 
     const toggleMenu = () => setMenuOpen(!menuOpen);
-    return (<>
-        <nav className={styles.nav}>
-            <Link href="/" className={styles.logo}>
-                <Image
-                    src="/images/logo.png"
-                    alt="Logo"
-                    width={120}
-                    height={40}
-                />
+    const pathName = usePathname()
+    const isLoginPage = pathName === '/login';
 
-            </Link>
-            {isMobile && (
-                <div className={styles.burgerIcon} onClick={toggleMenu}>
-                    <span className={menuOpen ? styles.show : ""}>☰</span>
-                </div>
-            )}
-            <div className={styles.navLinks + " " + (menuOpen ? styles.show : "")}>
-                <div className={styles.links}>
-                    <a href="/" className={pathname === "/" ? "is-active" : ""}>Home</a>
-                    <img width="20" height="20" src={pathname === "/" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
-                </div>
-                <div className={styles.links}>
-                    <a href="/categories" className={pathname === "/categories" ? "is-active" : ""}>Categories</a>
-                    <img width="15" height="15" src={pathname === "/categories" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
-                </div>
-                {
-                    isLogin && (
-                        <div className={styles.links}>
-                            <a href="#" className={pathname === "/My ticket" ? "is-active" : ""}>My Tickets</a>
-                            <img width="15" height="15" src={pathname === "/My ticket" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
-                        </div>
-                    )
-                }
-                <div className={styles.links}>
-                    <a href="/about" className={pathname === "/about" ? "is-active" : ""}>About</a>
-                    <img width="15" height="15" src={pathname === "/about" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
-                </div>
-                <div className={styles.links}>
-                    <a href="/profile" className={pathname === "/profile" ? "is-active" : ""}>Profile</a>
-                    <img width="15" height="15" src={pathname === "/profile" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
-                </div>
+    if (!isLoginPage) {
+        return (<>
+            <nav className={styles.nav}>
+                <Link href="/" className={styles.logo}>
+                    <Image
+                        src="/images/logo.png"
+                        alt="Logo"
+                        width={120}
+                        height={40}
+                    />
+
+                </Link>
                 {isMobile && (
-                    isLogin ? (
-                        <span
-                            onClick={handleLogout}
-                            className={`${styles.loginButton}  ticketButton`}
-                        >
-                            Logout
-                        </span>
-                    ) : (
-                        <Link href="/login" className={`${styles.loginButton} ticketButton`}>
-                            Login
-                        </Link>
-                    )
+                    <div className={styles.burgerIcon} onClick={toggleMenu}>
+                        <span className={menuOpen ? styles.show : ""}>☰</span>
+                    </div>
                 )}
-            </div>
-            {!isMobile && (
-                <div className={styles.username}>
-                    {isLogin ? (
-                        <span className={styles.loginButton} onClick={handleLogout}>Logout</span>
-                    ) : (
-                        <Link className={styles.loginButton} href="/login">Login</Link>
+                <div className={styles.navLinks + " " + (menuOpen ? styles.show : "")}>
+                    <div className={styles.links}>
+                        <a href="/" className={pathname === "/" ? "is-active" : ""}>Home</a>
+                        <img width="20" height="20" src={pathname === "/" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
+                    </div>
+                    <div className={styles.links}>
+                        <a href="/categories" className={pathname === "/categories" ? "is-active" : ""}>Categories</a>
+                        <img width="15" height="15" src={pathname === "/categories" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
+                    </div>
+                    {
+                        isLogin && (
+                            <div className={styles.links}>
+                                <a href="#" className={pathname === "/My ticket" ? "is-active" : ""}>My Tickets</a>
+                                <img width="15" height="15" src={pathname === "/My ticket" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
+                            </div>
+                        )
+                    }
+                    <div className={styles.links}>
+                        <a href="/about" className={pathname === "/about" ? "is-active" : ""}>About</a>
+                        <img width="15" height="15" src={pathname === "/about" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
+                    </div>
+                    <div className={styles.links}>
+                        <a href="/profile" className={pathname === "/profile" ? "is-active" : ""}>Profile</a>
+                        <img width="15" height="15" src={pathname === "/profile" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
+                    </div>
+                    {isMobile && (
+                        isLogin ? (
+                            <span
+                                onClick={handleLogout}
+                                className={`${styles.loginButton}  ticketButton`}
+                            >
+                                Logout
+                            </span>
+                        ) : (
+                            <Link href="/login" className={`${styles.loginButton} ticketButton`}>
+                                Login
+                            </Link>
+                        )
                     )}
                 </div>
-            )}
-        </nav>
+                {!isMobile && (
+                    <div className={styles.username}>
+                        {isLogin ? (
+                            <span className={styles.loginButton} onClick={handleLogout}>Logout</span>
+                        ) : (
+                            <Link className={styles.loginButton} href="/login">Login</Link>
+                        )}
+                    </div>
+                )}
+            </nav>
 
-        {menuOpen && <div className="overlay" onClick={toggleMenu}></div>}
-    </>
-    );
+            {menuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+        </>
+        );
+    }
 }
