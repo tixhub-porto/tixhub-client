@@ -6,6 +6,7 @@ import Form from 'next/form'
 import React, { useState } from "react";
 import axios from "axios";
 import { signIn } from "next-auth/react";
+import GeneralAlert from "./GeneralAlert";
 
 interface FormLoginProps {
     onToggle: () => void;
@@ -36,16 +37,21 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
 
                 // Redirect to dashboard
                 window.location.href = "/";
+            } else {
+                setMessage("Invalid Username or Password");
+
             }
 
         } catch (error) {
-            console.error(error)
+            setMessage("Invalid Username or Password");
+
         } finally {
             setLoading(false);
         }
     }
     return (
         <section className={styles.bigContainer}>
+            {message && <GeneralAlert text={message} imageUrl="/images/padlock.jpg" />}
             <div className={styles.containerForm}>
                 <div className={styles.formLogin}>
                     <h1>Log in</h1>
