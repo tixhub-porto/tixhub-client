@@ -1,20 +1,27 @@
 'use client'
+
 import { useEffect, useState } from "react";
-import { useLoading } from "@/context/LoadingContext";
 import { useParams } from "next/navigation";
 import { useEvent } from "@/context/EventContext";
+import DetailTicket from "@/components/DetailTicket";
+import { useLoading } from "@/context/LoadingContext";
 
 export default function TicketDetail() {
-    const { id } = useParams();
-    const getEvents = useEvent()
+    const params = useParams();
+    const id = (params as any).id
+
+    const { fetchEventByID, loading } = useEvent();
+    const [event, setEvent] = useState<any>(null);
     const { setLoading } = useLoading()
-    const event = getEvents.events.find((x) => x.id_event == id)
+
     useEffect(() => {
-        if (event) setLoading(false);
-    }, [getEvents.loading]);
-    return (
-        <>
-            <p>Hello</p>
-        </>
-    )
+        if (!id) return;
+
+        fetchEventByID(id)
+            .then(setEvent)
+            .catch(console.error);
+        setLoading(false);
+    }, [id, fetchEventByID]);
+
+    return <DetailTicket ticket={event} />;
 }

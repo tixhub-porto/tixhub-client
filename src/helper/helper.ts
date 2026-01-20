@@ -24,10 +24,11 @@ export async function fetchPostBE(path: string, body?: any, method: string = "PO
 
 export async function fetchGetBE(path: string, param?: Record<string, any>, method: string = "GET") {
     let url = `${envConfig.BaseURL}${path}`;
+    console.log("🚀 ~ fetchGetBE ~ url:", url)
 
     if (param && Object.keys(param).length > 0) {
         const queryString = new URLSearchParams(param).toString();
-        url += `?=${queryString}`;
+        url += `?${queryString}`;
     }
 
     const backendRes = await fetch(url, {
