@@ -5,10 +5,14 @@ import { useState } from "react";
 type GeneralAlertProps = {
     text: string;
     imageUrl: string
+    href?: string
 };
-export default function GeneralAlert({ text, imageUrl }: GeneralAlertProps) {
+export default function GeneralAlert({ text, imageUrl, href }: GeneralAlertProps) {
     const [alertOpen, setAlertOpen] = useState(true);
-    const toggleAlert = () => setAlertOpen(!alertOpen);
+    const toggleAlert = () => {
+        setAlertOpen(!alertOpen);
+        if (href) window.location.href = href
+    }
     if (!alertOpen) return null;
 
     return (

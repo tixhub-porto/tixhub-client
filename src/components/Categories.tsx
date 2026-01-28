@@ -8,6 +8,7 @@ export default function Categories() {
     const { setLoading } = useLoading();
     const [sliderValue, setSliderValue] = useState(1);
     const [event, setEvent] = useState<any[]>([]);
+    const [openFilter, setOpenFilter] = useState(false)
 
     useEffect(() => {
         setLoading(true);
@@ -35,20 +36,15 @@ export default function Categories() {
         setSliderValue(e.target.value);
     };
 
+    const toggleFilter = () => {
+        setOpenFilter(!openFilter)
+    }
+
     return (
         <>
             <div className={styles.bigContainer}>
-                <div className={styles.carouselContainer}>
-                    {
-                        category.map((item) => (
-                            <div key={item.IDCategory} className={`${styles.card} ${item.IDCategory}`}>
-                                <span>{item.Category}</span>
-                            </div>
-                        ))
-                    }
-                </div>
                 <div className={styles.productContent}>
-                    <div className={styles.sortContainer}>
+                    <div className={`${styles.sortContainer} ${openFilter ? styles.show : ''}`}>
                         <div className={styles.sortPrice}>
                             <span>Price Range</span>
                             <input
@@ -95,6 +91,18 @@ export default function Categories() {
                         </div>
                     </div>
                     <div className={styles.productContainer}>
+                        <div className={styles.carouselContainer}>
+                            <div className={styles.card} onClick={toggleFilter}>
+                                <span>Filter & Sort</span>
+                            </div>
+                            {
+                                category.map((item) => (
+                                    <div key={item.IDCategory} className={`${styles.card} ${item.IDCategory}`}>
+                                        <span>{item.Category}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
                         <div className={styles.cardContainer}>
                             {event.map((e, i) => (
                                 <div key={i} className={styles.card} style={{ "--image-url": `url(${e.image})` } as React.CSSProperties}>

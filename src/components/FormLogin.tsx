@@ -36,7 +36,6 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
                 }
 
                 // Redirect to dashboard
-                window.location.href = "/";
             } else {
                 setMessage("Invalid Username or Password");
 
@@ -51,7 +50,7 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
     }
     return (
         <section className={styles.bigContainer}>
-            {message && <GeneralAlert text={message} imageUrl="/images/padlock.jpg" />}
+            {message && <GeneralAlert text={message} imageUrl="/images/padlock.jpg" href="/" />}
             <div className={styles.containerForm}>
                 <div className={styles.formLogin}>
                     <h1>Log in</h1>

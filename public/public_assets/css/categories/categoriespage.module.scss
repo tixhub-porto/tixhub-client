@@ -3,44 +3,27 @@
 .bigContainer {
     padding: 1rem;
     margin-top: 5rem;
-    height: 100vh;
-
-    .carouselContainer {
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
-
-        .card {
-            background-color: $yellowOrange;
-            padding: .5rem;
-            color: black;
-            border-radius: 10px;
-            cursor: pointer;
-            min-width: 50px;
-            text-align: center;
-
-            &:hover {
-                background-color: #EDCB7D;
-            }
-        }
-    }
 
     .productContent {
         display: flex;
         gap: 1rem;
-        padding: 2rem 0;
         height: 100%;
 
         .sortContainer {
             background-color: $darkRed;
-            height: 100%;
+            height: auto;
+            width: 100%;
             padding: 1rem;
             border-radius: 5px;
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: flex-start;
             gap: 2rem;
-            max-width: 250px;
+            flex: 1;
+
+            &.show{
+                display: flex;
+            }
 
             span {
                 font-weight: bold;
@@ -117,19 +100,41 @@
         .productContainer {
             height: 100%;
             width: 100%;
-            flex: 1;
+            flex: 3;
+
+            .carouselContainer {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                margin-bottom: 2rem;
+                padding: 0 .5rem;
+
+                .card {
+                    background-color: $yellowOrange;
+                    padding: .5rem;
+                    color: black;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    text-align: center;
+                    white-space: nowrap;
+                    width: 100%;
+                    min-width: 100px;
+
+                    &:hover {
+                        background-color: #EDCB7D;
+                    }
+                }
+            }
 
             .cardContainer {
                 width: 100%;
                 height: 100%;
                 display: flex;
-                flex-direction: row;
-                align-items: center;
                 gap: 2rem;
                 flex-wrap: wrap;
 
                 .card {
-                    width: calc((100% - 6rem) / 4);
+                    width: calc((100% - 4rem) / 3);
                     display: flex;
                     flex-direction: column;
                     padding: 1rem;
@@ -169,6 +174,34 @@
                         .ticketButtonCard {
                             width: 100%;
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .bigContainer {
+        .productContent {
+            flex-direction: column;
+
+            .productContainer {
+                .carouselContainer {
+                    overflow-x: scroll;
+                    -ms-overflow-style: none;
+                    /* IE and Edge */
+                    scrollbar-width: none;
+                    /* Firefox */
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+
+                .cardContainer {
+                    .card {
+                        width: 100%;
                     }
                 }
             }
