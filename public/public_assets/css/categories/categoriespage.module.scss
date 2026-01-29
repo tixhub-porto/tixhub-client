@@ -2,7 +2,6 @@
 
 .bigContainer {
     padding: 1rem;
-    margin-top: 5rem;
 
     .productContent {
         display: flex;
@@ -21,7 +20,7 @@
             gap: 2rem;
             flex: 1;
 
-            &.show{
+            &.show {
                 display: flex;
             }
 
@@ -169,6 +168,11 @@
                             margin: 0;
                             font-weight: bold;
                             font-size: 14px;
+                            -webkit-line-clamp: 3;
+                            overflow: hidden;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            text-align: left;
                         }
 
                         .ticketButtonCard {

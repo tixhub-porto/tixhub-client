@@ -3,7 +3,6 @@ import { useCategory } from "@/context/CategoryContext";
 import { useEvent } from "@/context/EventContext";
 import { useLoading } from "@/context/LoadingContext";
 import styles from "@css/landingpage/landingpage.module.css";
-import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

@@ -1,44 +1,40 @@
 .bigContainer {
     padding: 1rem;
-    padding-top: 6rem;
-    min-height: 100vh;
+
 
     .contentContainer {
-        background-color: #8E1616;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 50%;
-        border-radius: 10px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
 
-        .content {
-            padding: 1rem;
-            width: 100%;
-            height: 100%;
+        .primaryInfoContainer {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
+            gap: 2rem;
 
-            .imageContainer {
-                width: 200px;
-                object-fit: fill;
-
-                img {
-                    border-radius: 10px;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-
-            .contentDetail {
+            .primaryInfo {
                 display: flex;
                 flex-direction: column;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 1rem;
+                gap: 1.5rem;
+                flex: 1;
+
+                .ticketName {
+                    font-size: 20px;
+                    font-weight: bold;
+
+                    .ticketVendor {
+                        font-size: 15px;
+                        font-weight: normal;
+                    }
+                }
+
+                .label {
+                    .value {
+                        margin-left: .5rem;
+                        font-weight: bold;
+                    }
+                }
 
                 .submitButton {
                     background-color: #E4C479;
@@ -48,6 +44,74 @@
                     padding: 10px 7px;
                     cursor: pointer;
                     width: 100%;
+                }
+            }
+
+            .imageContainer {
+                width: 200px;
+                height: 300px;
+                flex: 2;
+
+                img {
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+            }
+        }
+
+        .contentDetailContainer {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1rem;
+
+            .sectionInfo {
+                width: 100%;
+
+                hr {
+                    margin-top: .5rem;
+                }
+            }
+
+            .description {
+                background-color: #470202;
+                padding: 1rem;
+                height: 100%;
+                width: 100%;
+                min-height: 300px;
+                border-radius: 10px;
+
+                span {
+                    line-height: 1.5rem;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width:720px) {
+    .bigContainer {
+        padding: 1.5rem;
+
+        .contentContainer {
+            padding: 0;
+
+            .primaryInfoContainer {
+                flex-direction: column;
+
+                .imageContainer {
+                    width: 100%;
+                    flex: auto;
+                }
+
+                .primaryInfo {
+                    gap: 1rem;
                 }
             }
         }

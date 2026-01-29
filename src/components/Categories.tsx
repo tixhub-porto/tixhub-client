@@ -1,6 +1,7 @@
 import { useLoading } from "@/context/LoadingContext";
 import styles from "@css/categories/categoriespage.module.css";
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Categories() {
@@ -108,7 +109,7 @@ export default function Categories() {
                                 <div key={i} className={styles.card} style={{ "--image-url": `url(${e.image})` } as React.CSSProperties}>
                                     <div className={styles.cardContent}>
                                         <p className={styles.cardDescription}>{e.description || "No description"}</p>
-                                        <button className={`ticketButton ${styles.ticketButtonCard}`}>Buy Ticket</button>
+                                        <Link href={`/tickets/${e.id_event}`} className={`ticketButton ${styles.ticketButtonCard}`} >Buy Ticket</Link>
                                     </div>
                                 </div>
                             ))}
