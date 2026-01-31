@@ -21,7 +21,7 @@ export default function TicketDetail() {
             .then(setEvent)
             .catch(console.error);
         setLoading(false);
-    }, [id, fetchEventByID]);
+    }, [id]);
 
     return <DetailTicket ticket={event} />;
 }

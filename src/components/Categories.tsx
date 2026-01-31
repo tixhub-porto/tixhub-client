@@ -1,37 +1,33 @@
+import { useCategory } from "@/context/CategoryContext";
+import { useEvent } from "@/context/EventContext";
 import { useLoading } from "@/context/LoadingContext";
 import styles from "@css/categories/categoriespage.module.css";
 import axios from "axios";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+interface CategoriesProps {
+    selectedCategory?: string
+}
 
-export default function Categories() {
-    const [category, setCategory] = useState<any[]>([]);
+export default function Categories({ selectedCategory }: CategoriesProps) {
+    const { category } = useCategory()
     const { setLoading } = useLoading();
     const [sliderValue, setSliderValue] = useState(1);
-    const [event, setEvent] = useState<any[]>([]);
+    const { events, loading } = useEvent();
     const [openFilter, setOpenFilter] = useState(false)
+    const searchParams = useSearchParams();
+    const categoryQuery = searchParams.get("category");
+    const [selectCategory, setSelectCategory] = useState<string | undefined>(categoryQuery || selectedCategory);
 
     useEffect(() => {
-        setLoading(true);
-    }, []);
+        const categoryQuery = searchParams.get("category");
+        if (categoryQuery) {
+            setSelectCategory(categoryQuery);
+        }
+        setLoading(false);
+    }, [searchParams]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [eventRes, categoryRes] = await Promise.all([
-                    axios.get("/api/event"),
-                    axios.get("/api/category"),
-                ]);
-                setEvent(eventRes.data.data);
-                setCategory(categoryRes.data.data);
-            } catch (error) {
-                console.error(error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchData();
-    }, []);
 
     const handlerSort = (e: any) => {
         setSliderValue(e.target.value);
@@ -40,6 +36,12 @@ export default function Categories() {
     const toggleFilter = () => {
         setOpenFilter(!openFilter)
     }
+
+    const filteredEvents = selectCategory
+        ? events.filter(e => e.category.toLowerCase() === selectCategory.toLowerCase())
+        : events;
+
+    const hasEvents = filteredEvents.length > 0;
 
     return (
         <>
@@ -98,14 +100,14 @@ export default function Categories() {
                             </div>
                             {
                                 category.map((item) => (
-                                    <div key={item.IDCategory} className={`${styles.card} ${item.IDCategory}`}>
+                                    <Link key={item.IDCategory} href={`/categories?category=${encodeURIComponent(item.Category)}`} className={`${styles.card} ${item.IDCategory} ${selectCategory?.toLowerCase() == item.Category.toLowerCase() ? styles.isSort : ""}`}>
                                         <span>{item.Category}</span>
-                                    </div>
+                                    </Link>
                                 ))
                             }
                         </div>
-                        <div className={styles.cardContainer}>
-                            {event.map((e, i) => (
+                        <div className={`${styles.cardContainer} ${hasEvents ? "is-hidden" : ""}`}>
+                            {filteredEvents.map((e, i) => (
                                 <div key={i} className={styles.card} style={{ "--image-url": `url(${e.image})` } as React.CSSProperties}>
                                     <div className={styles.cardContent}>
                                         <p className={styles.cardDescription}>{e.description || "No description"}</p>
@@ -115,6 +117,10 @@ export default function Categories() {
                             ))}
                         </div>
                     </div>
+                </div>
+                <div className={`${styles.notFoundEvent} ${hasEvents ? "" : styles.isNoEvent} ${openFilter ? styles.showFilter : ''}`}>
+                    <img src="/images/event-not-found.jpg" alt="" />
+                    <span>Sorry, events in this category are not yet available</span>
                 </div>
             </div>
         </>

@@ -28,6 +28,8 @@ export function EventProvider({ children }: { children: React.ReactNode }) {
         }
     };
     const fetchEventByID = async (id: string) => {
+        const existing = events.find(e => e.id === id);
+        if (existing) return existing;
         try {
             setLoading(true);
             const res = await axios.get(`/api/event/${id}`);
@@ -39,7 +41,7 @@ export function EventProvider({ children }: { children: React.ReactNode }) {
             setLoading(false);
         }
     };
-    
+
     useEffect(() => {
         fetchEvents();
     }, []);

@@ -31,7 +31,7 @@ export default function Home() {
             <h1>Category Event</h1>
             <div className={styles.categoryList}>
               {category.map((item, index) => (
-                <Link href={`/category/${item.Category.toLowerCase()}`} key={index} className={styles.categoryCard + " " + styles[item.Category.toLowerCase()]}>
+                <Link href={`/categories?category=${encodeURIComponent(item.Category)}`} key={index} className={styles.categoryCard + " " + styles[item.Category.toLowerCase()]}>
                   <img src={item.Image} alt={item.Category} />
                   <p className={styles.categoryCardDescription}>
                     {item.Category}

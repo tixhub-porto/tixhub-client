@@ -1,12 +1,10 @@
 "use client";
 
 import Categories from "@/components/Categories";
+import { useParams } from "next/navigation";
 
 export default function CategoriesPage() {
-
-    return (
-        <>
-            <Categories />
-        </>
-    );
+    const params = useParams();
+    const selectedCategory: any = params.category;
+    return <Categories selectedCategory={selectedCategory} />;
 }
