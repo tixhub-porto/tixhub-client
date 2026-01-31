@@ -98,13 +98,26 @@ export default function Categories({ selectedCategory }: CategoriesProps) {
                             <div className={styles.card} onClick={toggleFilter}>
                                 <span>Filter & Sort</span>
                             </div>
-                            {
-                                category.map((item) => (
-                                    <Link key={item.IDCategory} href={`/categories?category=${encodeURIComponent(item.Category)}`} className={`${styles.card} ${item.IDCategory} ${selectCategory?.toLowerCase() == item.Category.toLowerCase() ? styles.isSort : ""}`}>
+                            {category.map((item) => {
+                                const isSelected = selectCategory?.toLowerCase() === item.Category.toLowerCase();
+                                return (
+                                    <div
+                                        key={item.IDCategory}
+                                        className={`${styles.card} ${item.IDCategory} ${isSelected ? styles.isSort : ""}`}
+                                        onClick={() => {
+                                            if (isSelected) {
+                                                setSelectCategory(undefined);
+                                                window.history.replaceState(null, '', '/categories');
+                                            } else {
+                                                setSelectCategory(item.Category);
+                                                window.history.replaceState(null, '', `/categories?category=${encodeURIComponent(item.Category)}`);
+                                            }
+                                        }}
+                                    >
                                         <span>{item.Category}</span>
-                                    </Link>
-                                ))
-                            }
+                                    </div>
+                                )
+                            })}
                         </div>
                         <div className={`${styles.cardContainer} ${hasEvents ? "is-hidden" : ""}`}>
                             {filteredEvents.map((e, i) => (
@@ -124,5 +137,5 @@ export default function Categories({ selectedCategory }: CategoriesProps) {
                 </div>
             </div>
         </>
-    );
+    )
 }
