@@ -45,7 +45,7 @@ export default function Home() {
           <div className={styles.listTicket}>
             <h1>Ready to Rock?</h1>
             <div className={styles.cardContainer}>
-              {events.map((e, i) => (
+              {events.filter((e) => e.category == "Concert").map((e, i) => (
                 <div key={i} className={styles.card} style={{ "--image-url": `url(${e.image})` } as React.CSSProperties}>
                   <div className={styles.cardContent}>
                     <p className={styles.cardDescription}>{e.description || "No description"}</p>

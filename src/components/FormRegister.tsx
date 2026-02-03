@@ -5,6 +5,7 @@ import Image from "next/image";
 import Form from 'next/form'
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import GeneralAlert from "./GeneralAlert";
 
 interface FormRegisterProps {
     onToggle: () => void;
@@ -12,6 +13,7 @@ interface FormRegisterProps {
 
 export default function FormRegister({ onToggle }: FormRegisterProps) {
     const [message, setMessage] = useState("");
+    const [href, setHref] = useState("");
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
@@ -27,22 +29,23 @@ export default function FormRegister({ onToggle }: FormRegisterProps) {
 
             if (response.status === 200) {
                 const data = response.data;
-                if (data.token) {
-                    localStorage.setItem("token", data.token);
-                }
-
-                // Redirect to dashboard
-                window.location.href = "/login";
+                setMessage(data.Message);
+                setHref("/login");
+            } else {
+                setMessage(response.data.Message);
+                setHref("");
             }
 
-        } catch (error) {
-            console.error(error)
+        } catch (error: any) {
+            setMessage(error.response.data.error);
+            setHref("");
         } finally {
             setLoading(false);
         }
     }
     return (
         <section className={styles.bigContainer}>
+            {message && <GeneralAlert text={message} imageUrl="/images/padlock.jpg" href={href != "" ? href : ""} />}
             <div className={styles.containerForm}>
                 <div className={styles.formLogin}>
                     <h1>Register</h1>

@@ -105,10 +105,10 @@
   background: linear-gradient(159deg, #0363e7, #8e9c00);
 }
 .landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.sports {
-  background: linear-gradient(159deg, #e0b600, #2c8902);
+  background: linear-gradient(159deg, #e0b600, #429ee6);
 }
 .landingPageSection .categorySection .categoryContainer .categoryList .categoryCard.business {
-  background: linear-gradient(159deg, #429ee6, #8f2828);
+  background: linear-gradient(159deg, #2c8902, #8f2828);
 }
 .landingPageSection .categorySection .categoryContainer .categoryList .categoryCard img {
   width: 100px;

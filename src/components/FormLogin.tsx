@@ -35,7 +35,6 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
                     localStorage.setItem("token", data.token);
                 }
 
-                // Redirect to dashboard
             } else {
                 setMessage("Invalid Username or Password");
 

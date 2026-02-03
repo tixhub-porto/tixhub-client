@@ -11,7 +11,7 @@ export default function GeneralAlert({ text, imageUrl, href }: GeneralAlertProps
     const [alertOpen, setAlertOpen] = useState(true);
     const toggleAlert = () => {
         setAlertOpen(!alertOpen);
-        if (href) window.location.href = href
+        if (href && href.trim() !== "") window.location.href = href
     }
     if (!alertOpen) return null;
 

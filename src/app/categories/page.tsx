@@ -10,7 +10,7 @@ export default function CategoriesPage() {
     return (
         <>
             <Suspense>
-                <Categories selectedCategory={selectedCategory} />;
+                <Categories selectedCategory={selectedCategory} />
             </Suspense>
         </>
 
