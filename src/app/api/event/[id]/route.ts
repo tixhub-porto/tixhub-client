@@ -5,6 +5,6 @@ export async function GET(
     request: Request,
     { params }: { params: Promise<{ id: string }> }
 ) {
-    const { id } = (await params);
-    return fetchGetBE("/getEvent", { id });
+    const { id }: any = (await params);
+    return fetchGetBE("/getEvent", { params: id });
 }

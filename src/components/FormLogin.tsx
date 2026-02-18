@@ -16,6 +16,7 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [href, setHref] = useState("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -30,6 +31,7 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
             if (response.status === 200) {
                 const data = response.data;
                 setMessage("Login successful ✅");
+                setHref("/")
 
                 if (data.token) {
                     localStorage.setItem("token", data.token);
@@ -37,11 +39,10 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
 
             } else {
                 setMessage("Invalid Username or Password");
-
             }
 
-        } catch (error) {
-            setMessage("Invalid Username or Password");
+        } catch (error: any) {
+            setMessage(error.response.data.error);
 
         } finally {
             setLoading(false);
@@ -49,7 +50,7 @@ export default function FormLogin({ onToggle }: FormLoginProps) {
     }
     return (
         <section className={styles.bigContainer}>
-            {message && <GeneralAlert text={message} imageUrl="/images/padlock.jpg" href="/" />}
+            {message && <GeneralAlert text={message} imageUrl="/images/padlock.jpg" href={href != "" ? href : ""} />}
             <div className={styles.containerForm}>
                 <div className={styles.formLogin}>
                     <h1>Log in</h1>

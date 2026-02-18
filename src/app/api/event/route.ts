@@ -6,5 +6,5 @@ export async function GET(request: Request) {
     searchParams.forEach((value, key) => {
         paramsObj[key] = value;
     });
-    return fetchGetBE("/getEvent", Object.keys(paramsObj).length ? paramsObj : undefined);
+    return fetchGetBE("/getEvent", { params: Object.keys(paramsObj).length ? paramsObj : undefined });
 }

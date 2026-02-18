@@ -103,10 +103,13 @@ export default function Navbar() {
                         <a href="/about" className={pathname === "/about" ? "is-active" : ""}>About</a>
                         <img width="15" height="15" src={pathname === "/about" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
                     </div>
-                    <div className={styles.links}>
-                        <a href="/profile" className={pathname === "/profile" ? "is-active" : ""}>Profile</a>
-                        <img width="15" height="15" src={pathname === "/profile" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
-                    </div>
+                    {isLogin ?
+                        <div className={styles.links}>
+                            <a href="/profile" className={pathname === "/profile" ? "is-active" : ""}>Profile</a>
+                            <img width="15" height="15" src={pathname === "/profile" ? "https://img.icons8.com/ios-filled/50/more-than.png" : "https://img.icons8.com/ios-glyphs/30/FFFFFF/more-than.png"} alt="more-than" />
+                        </div>
+                        : ""
+                    }
                     {isMobile && (
                         isLogin ? (
                             <span
