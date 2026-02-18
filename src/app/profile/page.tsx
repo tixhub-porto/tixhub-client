@@ -11,6 +11,7 @@ export default function Profile() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
+                setLoading(true)
                 const token = localStorage.getItem("token")
 
                 const response = await axios.get("/api/user", {
@@ -28,7 +29,6 @@ export default function Profile() {
         }
 
         fetchProfile()
-        setLoading(false)
     }, [])
     return (
         <>
@@ -52,7 +52,7 @@ export default function Profile() {
                             </button>
                         </div>
                         <div className={styles.imageUserContainer}>
-                            <img src="https://cdn-icons-png.flaticon.com/512/1040/1040228.png" alt="" className={styles.editImg}/>
+                            <img src="https://cdn-icons-png.flaticon.com/512/1040/1040228.png" alt="" className={styles.editImg} />
                             <img src="https://img.freepik.com/free-photo/happy-cheerful-female-customer-posing-camera_74855-2837.jpg?t=st=1770183780~exp=1770187380~hmac=e4a3878794a04746466824b976cf040609090198e722f2674e2315158d2ba258&w=1480" alt="" className={styles.profileImage} />
                         </div>
                         <div className={styles.mainInfoUser}>

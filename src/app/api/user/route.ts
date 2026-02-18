@@ -10,7 +10,11 @@ export async function GET(request: Request) {
         );
     }
 
-    return fetchGetBE("/users/getUsers", {
+    const response = await fetchGetBE("/users/getUsers", {
         token,
     });
+    const result = await response.json()
+    return Response.json([{
+        username: result.username
+    }]);
 }
