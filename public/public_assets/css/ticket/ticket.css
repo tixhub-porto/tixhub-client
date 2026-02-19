@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+.ticket {
+  margin: auto;
+  display: flex;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.ticket .left {
+  display: flex;
+}
+.ticket .left .image {
+  height: 100%;
+  width: 250px;
+  background-image: url("https://media.pitchfork.com/photos/60db53e71dfc7ddc9f5086f9/1:1/w_1656,h_1656,c_limit/Olivia-Rodrigo-Sour-Prom.jpg");
+  background-size: contain;
+  opacity: 0.85;
+}
+.ticket .left .ticket-number {
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 5px;
+  color: white;
+}
+.ticket .left .time {
+  font-size: 16px;
+}
+.ticket .admit-one {
+  position: absolute;
+  height: 250px;
+  padding: 0 10px;
+  letter-spacing: 0.15em;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+  color: darkgray;
+}
+.ticket .admit-one span:nth-child(2) {
+  color: white;
+  font-weight: 700;
+}
+.ticket .ticket-info {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.ticket .ticket-info .date {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 5px 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.ticket .ticket-info .date span {
+  width: 100px;
+}
+.ticket .ticket-info .date span:first-child {
+  text-align: left;
+}
+.ticket .ticket-info .date span:last-child {
+  text-align: right;
+}
+.ticket .ticket-info .date .june-29 {
+  color: #d83565;
+  font-size: 20px;
+}
+.ticket .ticket-info .show-name {
+  font-size: 32px;
+  font-family: "Nanum Pen Script", cursive;
+  color: #d83565;
+}
+.ticket .ticket-info .show-name h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #4a437e;
+}
+.ticket .ticket-info .time {
+  padding: 10px 0;
+  color: #4a437e;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 700;
+}
+.ticket .ticket-info .time span {
+  font-weight: 400;
+  color: gray;
+}
+.ticket .ticket-info .location {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding-top: 8px;
+  border-top: 1px solid gray;
+}
+.ticket .ticket-info .location .separator {
+  font-size: 20px;
+}
+.ticket .right {
+  width: 180px;
+  border-left: 1px dashed #404040;
+}
+.ticket .right .admit-one {
+  color: darkgray;
+}
+.ticket .right .admit-one span:nth-child(2) {
+  color: gray;
+}
+.ticket .right .right-info-container {
+  height: 250px;
+  padding: 10px 10px 10px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.ticket .right .show-name h1 {
+  font-size: 18px;
+}
+.ticket .right .barcode {
+  height: 100px;
+}
+.ticket .right .barcode img {
+  height: 100%;
+}
+.ticket .right .ticket-number {
+  color: gray;
+}

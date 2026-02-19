@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: flex-start;
   color: black;
-  width: 70%;
+  width: 100%;
   font-size: 15px;
 }
 .sectionProfile .profileContainer .infoLeftContainer {
@@ -25,6 +25,9 @@
   color: white;
   border-radius: 10px;
   height: -webkit-fill-available;
+}
+.sectionProfile .profileContainer .infoLeftContainer span {
+  cursor: pointer;
 }
 .sectionProfile .profileContainer .infoRightContainer {
   padding: 2rem;
@@ -79,6 +82,9 @@
 .sectionProfile .profileContainer .infoRightContainer .topInformation .buttonEdit:hover .imgWrapper {
   animation: fly-1 0.6s ease-in-out infinite alternate;
 }
+.sectionProfile .profileContainer .infoRightContainer .topInformation .buttonEdit:hover {
+  background-color: #740e0e;
+}
 .sectionProfile .profileContainer .infoRightContainer .topInformation .buttonEdit:active {
   transform: scale(0.95);
 }
@@ -90,9 +96,46 @@
     transform: translatex(-0.2em);
   }
 }
+.sectionProfile .profileContainer .infoRightContainer .categoryPaymentMethod {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.sectionProfile .profileContainer .infoRightContainer .categoryPaymentMethod .paymentMethod {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  min-width: 130px;
+  border-radius: 20px;
+  border: 2px solid #470202;
+  transition: 0.5s ease-out;
+  overflow: visible;
+  color: #470202;
+  cursor: pointer;
+}
+.sectionProfile .profileContainer .infoRightContainer .categoryPaymentMethod .paymentMethod img {
+  width: 50px;
+  height: 50px;
+}
+.sectionProfile .profileContainer .infoRightContainer .categoryPaymentMethod .paymentMethod span {
+  font-size: 1rem;
+}
+.sectionProfile .profileContainer .infoRightContainer .categoryPaymentMethod .paymentMethod:hover {
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  background-color: #470202;
+  color: #FFFFFF;
+}
+.sectionProfile .profileContainer .infoRightContainer .categoryPaymentMethod .paymentMethod.activePayment {
+  background-color: #2E0000;
+  color: #FFFFFF;
+  transform: scale(0.97);
+}
 .sectionProfile .profileContainer .infoRightContainer .imageUserContainer {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   position: relative;
 }
 .sectionProfile .profileContainer .infoRightContainer .imageUserContainer .editImg {
@@ -159,6 +202,12 @@
 }
 .sectionProfile .profileContainer .infoRightContainer .mainInfoUser .infoUserForm .inputForm input:disabled {
   background-color: rgb(185, 185, 185);
+}
+.sectionProfile .profileContainer .infoRightContainer .ticketContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 @media screen and (max-width: 720px) {

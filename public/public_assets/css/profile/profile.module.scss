@@ -13,7 +13,7 @@
         justify-content: space-between;
         align-items: flex-start;
         color: black;
-        width: 70%;
+        width: 100%;
         font-size: 15px;
 
         .infoLeftContainer {
@@ -25,6 +25,10 @@
             color: white;
             border-radius: 10px;
             height: -webkit-fill-available;
+
+            span {
+                cursor: pointer;
+            }
         }
 
         .infoRightContainer {
@@ -84,6 +88,10 @@
                         animation: fly-1 0.6s ease-in-out infinite alternate;
                     }
 
+                    &:hover {
+                        background-color: #740e0e;
+                    }
+
                     &:active {
                         transform: scale(0.95);
                     }
@@ -101,10 +109,53 @@
                 }
             }
 
+            .categoryPaymentMethod {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+
+                .paymentMethod {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 1rem;
+                    min-width: 130px;
+                    border-radius: 20px;
+                    border: 2px solid #470202;
+                    transition: 0.5s ease-out;
+                    overflow: visible;
+                    color: #470202;
+                    cursor: pointer;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    span {
+                        font-size: 1rem;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+                        background-color: #470202;
+                        color: #FFFFFF;
+                    }
+
+                    &.activePayment {
+                        background-color: #2E0000;
+                        color: #FFFFFF;
+                        transform: scale(0.97);
+                    }
+                }
+            }
+
 
             .imageUserContainer {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
                 position: relative;
 
                 .editImg {
@@ -183,6 +234,13 @@
                         }
                     }
                 }
+            }
+
+            .ticketContainer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
             }
 
         }
