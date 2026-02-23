@@ -55,9 +55,11 @@ export default function Profile() {
                     </div>
                     <div className={styles.infoRightContainer}>
                         {menuActive === "personal" && <EditInfoUser />}
-                        <div className={styles.ticketContainer}>
-                            {menuActive === "order" && <Tickets />}
-                        </div>
+                        {menuActive === "order" &&
+                            <div className={styles.containerTickets}>
+                                <Tickets />
+                            </div>
+                        }
                     </div>
                 </div>
             </section>

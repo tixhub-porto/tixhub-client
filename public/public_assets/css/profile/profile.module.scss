@@ -1,13 +1,7 @@
 .sectionProfile {
     padding: 1rem;
-    height: 100vh;
 
     .profileContainer {
-        padding: 2rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         display: flex;
         gap: 1rem;
         justify-content: space-between;
@@ -41,6 +35,12 @@
             gap: 2rem;
             background-color: #EDCB7D;
             border-radius: 10px;
+
+            .containerTickets{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
 
             .topInformation {
                 width: 100%;
@@ -234,13 +234,6 @@
                         }
                     }
                 }
-            }
-
-            .ticketContainer {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
             }
 
         }

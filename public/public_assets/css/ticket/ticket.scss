@@ -2,138 +2,150 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
 .ticket {
-    margin: auto;
     display: flex;
     background: white;
+    height: 250px;
+    width: calc((100% - 1rem) / 2);
     box-shadow:
         rgba(0, 0, 0, 0.3) 0px 19px 38px,
         rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
+    .left,
+    .right {
+        flex: 1;
+    }
+
+    .center {
+        flex: auto;
+    }
+
     .left {
-        display: flex;
+        position: relative;
 
         .image {
-            height: 100%;
             width: 250px;
-            background-image: url("https://media.pitchfork.com/photos/60db53e71dfc7ddc9f5086f9/1:1/w_1656,h_1656,c_limit/Olivia-Rodrigo-Sour-Prom.jpg");
-            background-size: contain;
-            opacity: 0.85;
-        }
-
-        .ticket-number {
             height: 250px;
-            width: 250px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            padding: 5px;
-            color: white;
+
+            .image-ticket {
+                width: 100%;
+                height: 100%;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
 
-        .time {
-            font-size: 16px;
-        }
-    }
+        .ticket-info-left {
+            position: absolute;
+            top: 0;
 
-    .admit-one {
-        position: absolute;
-        height: 250px;
-        padding: 0 10px;
-        letter-spacing: 0.15em;
-        display: flex;
-        text-align: center;
-        justify-content: space-around;
-        writing-mode: vertical-rl;
-        transform: rotate(-180deg);
-        color: darkgray;
+            .admit-one {
+                position: absolute;
+                height: 250px;
+                padding: 0 10px;
+                letter-spacing: 0.15em;
+                display: flex;
+                text-align: center;
+                justify-content: space-around;
+                writing-mode: vertical-rl;
+                transform: rotate(-180deg);
+                color: darkgray;
 
-        span {
-            &:nth-child(2) {
+                span {
+                    &:nth-child(2) {
+                        color: white;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .ticket-number {
+                height: 250px;
+                width: 250px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                padding: 5px;
                 color: white;
-                font-weight: 700;
             }
         }
     }
 
-    .ticket-info {
-        padding: 10px 30px;
-        display: flex;
-        flex-direction: column;
+    .center {
+        padding: 1rem 2rem;
         text-align: center;
-        justify-content: space-between;
-        align-items: center;
 
-        .date {
-            border-top: 1px solid gray;
-            border-bottom: 1px solid gray;
-            padding: 5px 0;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
+        .ticket-info {
+            .date {
+                padding: 5px 0;
+                border-top: 1px solid gray;
+                border-bottom: 1px solid gray;
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                justify-content: space-between;
 
-            span {
-                width: 100px;
+                span {
+                    width: 100px;
 
-                &:first-child {
-                    text-align: left;
+                    &:first-child {
+                        text-align: left;
+                    }
+
+                    &:last-child {
+                        text-align: right;
+                    }
                 }
 
-                &:last-child {
-                    text-align: right;
+                .june-29 {
+                    color: #d83565;
+                    font-size: 20px;
                 }
+
             }
 
-            .june-29 {
-                color: #d83565;
-                font-size: 20px;
+            .time-location {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .time {
+                    padding: 10px 0;
+                    color: #4a437e;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    font-weight: 700;
+
+                    span {
+                        font-weight: 400;
+                        color: gray;
+                    }
+                }
             }
         }
 
         .show-name {
-            font-size: 32px;
+            font-size: 24px;
             font-family: "Nanum Pen Script", cursive;
             color: #d83565;
 
             h1 {
-                font-size: 48px;
+                font-size: 40px;
                 font-weight: 700;
                 letter-spacing: 0.1em;
                 color: #4a437e;
             }
         }
 
-        .time {
-            padding: 10px 0;
-            color: #4a437e;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            font-weight: 700;
 
-            span {
-                font-weight: 400;
-                color: gray;
-            }
-        }
-
-        .location {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-            padding-top: 8px;
-            border-top: 1px solid gray;
-
-            .separator {
-                font-size: 20px;
-            }
-        }
     }
 
     .right {
-        width: 180px;
+        padding: 0 .5rem;
         border-left: 1px dashed #404040;
 
         .admit-one {
@@ -147,11 +159,10 @@
         }
 
         .right-info-container {
-            height: 250px;
-            padding: 10px 10px 10px 35px;
             display: flex;
+            height: 100%;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
         }
 
